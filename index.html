@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Déjalo Salir</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+</head>
+
+<body>
+    <h1>Déjalo Salir - Escribe lo que sientes</h1>
+    <div id="destroy_text"></div>
+    <input id="input_text" type="text" value="" placeholder="Deja salir lo que sientes..." />
+
+    <script>
+        document.getElementById("input_text").addEventListener("input", destroyText);
+        function destroyText(e) {
+            let text = e.target.value
+            if (text.length >= 43 && text[text.length - 1] == " ") {
+                document.getElementById("destroy_text").innerHTML = `<input class="animate__animated animate__fadeOutUp" value="${text}"/>`
+                e.target.value = ""
+            }
+        }
+    </script>
+</body>
+
+</html>
